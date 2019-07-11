@@ -17,3 +17,16 @@ input {
   width: 250px;
   height: 2.5rem;
 }
+
+#catBox {
+  background-color: #e1e2e4;
+  border-radius: 24px;
+  padding: 24px;
+  margin: 20px;
+}
+#itemBox {
+  background-color: #c4cee2;
+  border-radius: 24px;
+  padding: 24px;
+  margin: 20px;
+}
