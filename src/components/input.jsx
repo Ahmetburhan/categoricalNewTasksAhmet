@@ -98,17 +98,17 @@ export default class Todo extends React.Component {
     console.log(remainder);
   };
 
-  // handleRemoveCat = each => {
-  //   console.log("todo", each.key);
-  //   // Filter all todos except the one to be removed
-  //   const remainder = this.state.inputs.filter(todo => {
-  //     if (todo.key !== each.key) return todo;
-  //   });
-  //   this.setState({
-  //     inputs: remainder
-  //   });
-  //   console.log(remainder);
-  // };
+  handleRemoveCat = each => {
+    console.log("todo", each.key);
+    // Filter all todos except the one to be removed
+    // const remainder = this.state.inputs.filter(todo => {
+    //   if (todo.key !== each.key) return todo;
+    // });
+    // this.setState({
+    //   inputs: remainder
+    // });
+    // console.log(remainder);
+  };
 
   render() {
     const arrofTodos = this.state.inputs && this.state.inputs;
