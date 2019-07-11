@@ -50,7 +50,7 @@ export default class Todo extends React.Component {
       };
     });
   };
-
+  ///////////////Category functions add remove select
   addCategory = e => {
     e.preventDefault();
 
@@ -72,12 +72,26 @@ export default class Todo extends React.Component {
 
     console.log("cat here", cat);
 
-    this.setState((prevState, props) => {
-      return {
-        categories: prevState.categories.concat(newItem)
-      };
-    });
+    // this.setState((prevState, props) => {
+    //   return {
+    //     categories: prevState.categories.concat(newItem)
+    //   };
+    // });
   };
+
+  handleRemoveCat = each => {
+    console.log("todo", each);
+    // Filter all todos except the one to be removed
+    const remainder = this.state.categories.filter(cat => {
+      if (cat.catName !== each) return cat;
+    });
+    console.log(remainder);
+    this.setState({
+      categories: remainder
+    });
+    // console.log(remainder);
+  };
+  /////////////////////////
   handleChange = e => {
     e.preventDefault();
     console.log(e.target.value);
@@ -96,18 +110,6 @@ export default class Todo extends React.Component {
       inputs: remainder
     });
     console.log(remainder);
-  };
-
-  handleRemoveCat = each => {
-    console.log("todo", each.key);
-    // Filter all todos except the one to be removed
-    // const remainder = this.state.inputs.filter(todo => {
-    //   if (todo.key !== each.key) return todo;
-    // });
-    // this.setState({
-    //   inputs: remainder
-    // });
-    // console.log(remainder);
   };
 
   render() {
