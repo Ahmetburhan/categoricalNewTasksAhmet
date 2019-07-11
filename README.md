@@ -1,2 +1,0 @@
-# categoricalNewTasksAhmet
-Created with CodeSandbox
