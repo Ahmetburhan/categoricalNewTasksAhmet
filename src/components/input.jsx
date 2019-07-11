@@ -13,7 +13,7 @@ export default class Todo extends React.Component {
         { text: "orange", key: 242525223534 }
       ],
       inputs: [
-        { text: "apple", key: 213123123 },
+        { text: "apples", key: 213123123 },
         { text: "orange", key: 242525223534 }
       ],
       categories: [
@@ -67,16 +67,16 @@ export default class Todo extends React.Component {
     });
   };
 
-  selectCategory = cat => {
-    cat.preventDefault();
-
-    console.log("cat here", cat);
-
-    // this.setState((prevState, props) => {
-    //   return {
-    //     categories: prevState.categories.concat(newItem)
-    //   };
-    // });
+  selectCategory = catalog => {
+    console.log("catalog here", catalog);
+    const remainder = this.state.categories.filter(cat => {
+      if (cat.catName == catalog) return cat;
+    });
+    console.log("remcat", remainder[0].inputs);
+    this.setState({
+      inputs: remainder[0].inputs
+    });
+    console.log("inputs", this.state.inputs);
   };
 
   handleRemoveCat = each => {
@@ -101,10 +101,11 @@ export default class Todo extends React.Component {
   };
 
   handleRemove = each => {
-    console.log("todo", each.key);
+    console.log("list item", each);
     // Filter all todos except the one to be removed
-    const remainder = this.state.categories.filter(todo => {
-      if (todo.key !== each.key) return todo;
+    const remainder = this.state.inputs.filter(todo => {
+      console.log("todo here", todo);
+      if (todo.text !== each.text) return todo;
     });
     this.setState({
       inputs: remainder
@@ -113,7 +114,8 @@ export default class Todo extends React.Component {
   };
 
   render() {
-    const arrofTodos = this.state.inputs && this.state.inputs;
+    const listofTodos = this.state.inputs && this.state.inputs;
+
     const categories = this.state.categories && this.state.categories;
     // const inputs = this.state.categories && this.state.categories;
 
@@ -173,7 +175,7 @@ export default class Todo extends React.Component {
                   </Button>
                 </form>
                 <ul>
-                  {arrofTodos.map((todo, id) => {
+                  {listofTodos.map((todo, id) => {
                     return (
                       <li key={id}>
                         {id + 1}. {todo.text.toUpperCase()}{" "}
