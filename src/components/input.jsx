@@ -9,6 +9,7 @@ export default class Todo extends React.Component {
       inputfield: "",
       catinput: "",
       toggle: "true",
+      selectedCat: "",
       selectedInputs: [
         { text: "apple", key: 213123123 },
         { text: "orange", key: 242525223534 }
@@ -76,6 +77,7 @@ export default class Todo extends React.Component {
     console.log("remcat", remainder[0].inputs);
     this.setState({
       toggle: false,
+      selectedCat: catalog,
       inputs: remainder[0].inputs
     });
     console.log("inputs", this.state.inputs);
