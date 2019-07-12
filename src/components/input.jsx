@@ -8,6 +8,7 @@ export default class Todo extends React.Component {
     this.state = {
       inputfield: "",
       catinput: "",
+      toggle: "true",
       selectedInputs: [
         { text: "apple", key: 213123123 },
         { text: "orange", key: 242525223534 }
@@ -74,6 +75,7 @@ export default class Todo extends React.Component {
     });
     console.log("remcat", remainder[0].inputs);
     this.setState({
+      toggle: false,
       inputs: remainder[0].inputs
     });
     console.log("inputs", this.state.inputs);
@@ -114,7 +116,10 @@ export default class Todo extends React.Component {
   };
 
   render() {
-    const listofTodos = this.state.inputs && this.state.inputs;
+    const remainder = this.state.categories[0];
+    const listofTodos = this.state.toggle
+      ? remainder.inputs
+      : this.state.inputs;
 
     const categories = this.state.categories && this.state.categories;
     // const inputs = this.state.categories && this.state.categories;
